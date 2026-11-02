@@ -1,0 +1,578 @@
+PRODUCT REQUIREMENTS DOCUMENT (PRD)
+
+PROJECT TITLE: SocialSpark – Social Media Engagement Analytics &
+Prediction System
+
+PROJECT TYPE: Final-Year B.Tech CSE / Data Analytics Project
+
+PROJECT GOAL: Build a complete end-to-end analytics platform that
+analyzes historical social-media data, creates interactive dashboards,
+predicts expected engagement for new posts using machine learning, and
+generates data-driven content recommendations.
+
+1.  PROJECT OVERVIEW
+
+SocialSpark is a web-based Social Media Engagement Analytics and
+Prediction System.
+
+The system will: - Accept social-media datasets through CSV/Excel
+upload. - Clean and preprocess the data using Python. - Store structured
+data in MySQL/PostgreSQL. - Perform analytics using SQL and Python. -
+Display interactive analytics dashboards. - Calculate important
+engagement KPIs. - Analyze content, posting time, hashtags, captions,
+reach, views, and audience behavior. - Predict expected engagement for a
+new post using machine learning. - Generate recommendations based on
+historical data patterns.
+
+The project should look like a real industry Data Analytics product
+rather than only a college dashboard.
+
+2.  PROBLEM STATEMENT
+
+Social-media platforms generate large amounts of performance data, but
+raw metrics such as likes, comments, shares, views, reach, impressions,
+and followers do not directly explain why some content performs
+differently from other content.
+
+Users need a single system that converts raw social-media data into
+meaningful insights and helps them understand: - Which content performs
+better? - Which posting times have higher engagement? - Which
+platforms/categories perform better? - What factors are associated with
+engagement? - What engagement could a new post potentially receive? -
+What recommendations can be derived from historical data?
+
+3.  OBJECTIVES
+
+The system should:
+
+1.  Build an end-to-end Data Analytics project.
+
+2.  Demonstrate Python, SQL, Excel/CSV, Power BI/dashboarding,
+    statistics, and machine learning.
+
+3.  Clean and validate social-media datasets.
+
+4.  Calculate engagement-related KPIs.
+
+5.  Analyze content and audience trends.
+
+6.  Identify patterns related to posting time and content type.
+
+7.  Create interactive dashboards.
+
+8.  Train an ML regression model for engagement prediction.
+
+9.  Generate data-driven recommendations.
+
+10. Provide a professional UI suitable for a final-year project
+    demonstration.
+
+11. Maintain a clean GitHub-ready project structure.
+
+12. Include documentation, sample data, setup instructions, and test
+    cases.
+
+13. TARGET USERS
+
+-   Social-media managers
+-   Content creators
+-   Digital marketing teams
+-   Small businesses
+-   Students learning Data Analytics
+-   Project evaluators
+-   Recruiters/interviewers
+
+5.  TECHNOLOGY STACK
+
+Frontend: - HTML5 - CSS3 - JavaScript - React.js (preferred for advanced
+version)
+
+Backend: - Python - FastAPI or Flask
+
+Data Analytics: - Pandas - NumPy - Matplotlib - Seaborn - Scikit-learn
+
+Database: - MySQL or PostgreSQL
+
+Dashboard: - Power BI OR an interactive web dashboard using
+Plotly/Chart.js - If possible, include Power BI as the main BI reporting
+layer.
+
+Machine Learning: - Scikit-learn - Random Forest Regressor - Linear
+Regression baseline - Optional Gradient Boosting/XGBoost
+
+Version Control: - Git - GitHub
+
+6.  SYSTEM ARCHITECTURE
+
+Data Source ↓ CSV / Excel Upload ↓ Python Data Cleaning ↓ Data
+Validation ↓ SQL Database ↓ SQL Analytics ↓ Python EDA / Statistics ↓
+Dashboard ↓ Machine Learning Model ↓ Engagement Prediction ↓
+Recommendation Engine
+
+7.  MAIN MODULES
+
+7.1 DATA UPLOAD MODULE
+
+Features: - Upload CSV. - Upload Excel. - Display file name. - Display
+number of rows and columns. - Validate required columns. - Show missing
+values. - Show duplicate rows. - Show invalid data types. - Provide
+cleaned-data download.
+
+Required/Recommended fields: - post_id - platform - post_date -
+post_time - content_type - content_category - followers - impressions -
+reach - views - likes - comments - shares - saves - video_duration -
+caption_length - hashtag_count
+
+The application should work even if some optional columns are
+unavailable. Required columns should be clearly documented.
+
+7.2 DATA CLEANING MODULE
+
+Use Python/Pandas to: - Remove duplicate rows. - Handle missing
+values. - Standardize platform names. - Standardize content-type
+names. - Convert dates and times. - Convert numeric columns to correct
+data types. - Detect invalid negative values. - Handle outliers using a
+documented method. - Create derived columns.
+
+Derived columns: - total_engagement - engagement_rate - day_of_week -
+month - year - posting_hour - weekend_flag - caption_length_bucket -
+hashtag_count_bucket - video_duration_bucket
+
+Suggested formula:
+
+Total Engagement = Likes + Comments + Shares + Saves
+
+Engagement Rate = Total Engagement / Reach × 100
+
+If reach is unavailable, use a documented alternative such as
+impressions or followers. Do not mix formulas without clearly labeling
+them.
+
+7.3 ANALYTICS MODULE
+
+Calculate: - Total posts - Total views - Total impressions - Total
+reach - Total likes - Total comments - Total shares - Total saves -
+Average engagement - Median engagement - Average engagement rate -
+Follower growth - Platform-wise engagement - Content-type engagement -
+Category-wise engagement - Monthly engagement - Daily engagement -
+Hourly engagement - Top-performing posts - Lowest-performing posts -
+Reach-to-engagement relationship - Views-to-engagement relationship
+
+7.4 SQL ANALYTICS
+
+Create SQL queries for: - Total engagement by platform. - Average
+engagement rate by platform. - Top 10 posts. - Monthly engagement
+trend. - Engagement by content type. - Engagement by category. -
+Engagement by weekday. - Engagement by hour. - Average reach by content
+type. - Top hashtags if hashtag data is available. - Posts with
+engagement above average. - Posts with unusually low engagement. -
+Ranking posts using window functions. - Rolling monthly engagement where
+applicable.
+
+Use: - SELECT - WHERE - GROUP BY - HAVING - ORDER BY - JOIN - CASE -
+CTEs - Window functions - Aggregate functions
+
+8.  POWER BI / DASHBOARD DESIGN
+
+Dashboard should be modern, clean, responsive, and professional.
+
+Use filters: - Date range - Platform - Content type - Content category -
+Day - Month
+
+PAGE 1 – EXECUTIVE OVERVIEW
+
+KPI cards: - Total Posts - Total Engagement - Average Engagement Rate -
+Total Reach - Total Views - Total Followers
+
+Charts: - Monthly engagement trend - Platform comparison - Content-type
+comparison - Top-performing content - Engagement trend
+
+PAGE 2 – CONTENT PERFORMANCE
+
+Charts: - Engagement by content type - Engagement by category - Reach vs
+engagement - Views vs engagement - Top 10 posts - Average engagement
+rate by content type
+
+Insights: - Which content type has higher engagement in the dataset? -
+Which category has the highest average engagement? - Which posts are
+outliers?
+
+PAGE 3 – TIME ANALYTICS
+
+Charts: - Engagement by weekday - Engagement by hour - Day × hour
+heatmap - Monthly trend - Weekday vs weekend comparison
+
+The system should identify historically strong posting windows without
+presenting them as guaranteed future performance.
+
+PAGE 4 – AUDIENCE & GROWTH
+
+Charts: - Follower growth - Reach trend - Impressions trend - Engagement
+trend - Audience segment analysis if demographic fields exist
+
+PAGE 5 – TOP CONTENT
+
+Table: - Post ID - Date - Platform - Content type - Category - Reach -
+Views - Likes - Comments - Shares - Saves - Engagement rate
+
+Allow sorting and filtering.
+
+PAGE 6 – ML PREDICTION
+
+Input form: - Platform - Content type - Category - Followers -
+Expected/available reach - Expected/available views - Video duration -
+Caption length - Hashtag count - Posting hour - Posting weekday -
+Previous average engagement
+
+Output: - Predicted engagement - Predicted engagement-rate estimate when
+supported by the model - Model confidence/uncertainty information where
+technically valid - Key input factors - Historical comparison
+
+Important: Predictions must be presented as estimates, not guaranteed
+results.
+
+9.  MACHINE LEARNING MODULE
+
+Goal: Predict expected engagement for a new social-media post.
+
+Target: - Primary target: total_engagement OR - Alternative target:
+engagement_rate
+
+Models: 1. Linear Regression – baseline 2. Random Forest Regressor –
+primary model 3. Optional Gradient Boosting/XGBoost
+
+Preprocessing: - Encode categorical variables. - Handle missing
+values. - Scale numerical features where required. - Split data into
+training and testing sets. - Avoid data leakage.
+
+Recommended split: - 80% training - 20% testing
+
+For time-based datasets, preferably use a chronological split or
+TimeSeriesSplit to reduce future-information leakage.
+
+Evaluation: - MAE - RMSE - R²
+
+Display: - Actual vs predicted chart - Feature importance - Evaluation
+metrics
+
+10. RECOMMENDATION ENGINE
+
+The recommendation engine must be data-driven.
+
+It can identify: - Historically high-performing posting windows. -
+Content types associated with higher engagement. - Categories with
+strong engagement. - Caption-length patterns. - Hashtag-count
+patterns. - Video-duration patterns. - Platform-specific patterns.
+
+Example output:
+
+“Within the analyzed dataset, posts published during the 6–8 PM period
+showed higher median engagement than other observed time periods.”
+
+“Within this dataset, short-form video content had a higher median
+engagement rate than image content.”
+
+Do not present these observations as universal rules.
+
+11. UI/UX REQUIREMENTS
+
+Design: - Modern analytics dashboard. - White/light background. -
+Professional pastel pink, purple, blue, and dark navy accents. - Rounded
+cards. - Clean charts. - Responsive layout. - Sidebar navigation. -
+Clear typography. - Consistent spacing.
+
+Brand: SocialSpark
+
+Subtitle: Social Media Engagement Analytics & Prediction System
+
+Tagline: ANALYZE • PREDICT • GROW
+
+Pages: - Login - Dashboard - Upload Data - Data Quality - Analytics -
+Content Performance - Time Analytics - Prediction - Recommendations -
+Reports - Settings
+
+12. LOGIN SYSTEM
+
+Implement basic authentication.
+
+Features: - Register - Login - Logout - Password hashing - Session/JWT
+authentication - Protected dashboard routes
+
+For a college project/demo, authentication can be simple but should
+follow reasonable security practices.
+
+13. DATABASE DESIGN
+
+Recommended tables:
+
+users - id - name - email - password_hash - created_at
+
+posts - post_id - user_id - platform - post_date - post_time -
+content_type - content_category - followers - impressions - reach -
+views - likes - comments - shares - saves - video_duration -
+caption_length - hashtag_count - created_at
+
+analytics_summary - id - date - platform - total_posts -
+total_engagement - average_engagement_rate - total_reach - total_views
+
+predictions - id - user_id - input_features - predicted_engagement -
+model_name - created_at
+
+14. API REQUIREMENTS
+
+Suggested API endpoints:
+
+POST /auth/register POST /auth/login POST /auth/logout
+
+POST /data/upload GET /data/summary GET /data/quality GET
+/analytics/overview GET /analytics/platform GET /analytics/content GET
+/analytics/time GET /analytics/top-posts
+
+POST /predict/engagement GET /predict/model-metrics
+
+GET /recommendations GET /reports/export
+
+15. REPORT GENERATION
+
+Allow users to export: - CSV - Excel - PDF summary report
+
+Report should include: - Dataset summary - KPI summary - Major charts -
+Top content - Key findings - Model performance - Recommendations
+
+16. DATA QUALITY PAGE
+
+Show: - Total records - Duplicate records - Missing values - Invalid
+values - Numeric/categorical columns - Data type issues - Cleaning
+actions performed
+
+Use clear status indicators: - Valid - Warning - Error
+
+17. SAMPLE DATA
+
+Include a synthetic sample dataset for testing.
+
+Minimum recommended size: 5,000–20,000 rows.
+
+The sample data should contain realistic but clearly synthetic
+social-media records.
+
+Do not scrape personal/private user data.
+
+Suggested platforms: - Instagram - YouTube - TikTok - LinkedIn - X
+
+The system should not require live social-media APIs for the basic
+project.
+
+18. OPTIONAL LIVE API INTEGRATION
+
+If APIs are legally and technically available, the project may later
+support platform APIs.
+
+However, the core project must work completely offline/local using
+CSV/Excel data.
+
+Do not make the project dependent on third-party paid APIs.
+
+19. PROJECT FOLDER STRUCTURE
+
+socialspark/ │ ├── frontend/ │ ├── src/ │ ├── components/ │ ├── pages/ │
+├── services/ │ └── assets/ │ ├── backend/ │ ├── app/ │ │ ├── main.py │
+│ ├── routes/ │ │ ├── models/ │ │ ├── schemas/ │ │ ├── services/ │ │ └──
+utils/ │ └── requirements.txt │ ├── analytics/ │ ├── data_cleaning.py │
+├── eda.py │ ├── feature_engineering.py │ └── sql_queries/ │ ├── ml/ │
+├── train.py │ ├── predict.py │ ├── preprocessing.py │ ├── evaluate.py │
+└── models/ │ ├── data/ │ ├── raw/ │ ├── processed/ │ └── sample/ │ ├──
+dashboard/ │ └── powerbi/ │ ├── docs/ │ ├── PRD.md │ ├──
+database-schema.md │ └── API.md │ ├── tests/ │ ├── .env.example ├──
+.gitignore ├── README.md └── requirements.txt
+
+20. SECURITY REQUIREMENTS
+
+-   Never store plain-text passwords.
+-   Use environment variables for database credentials.
+-   Do not commit .env files.
+-   Validate uploaded files.
+-   Restrict accepted file types.
+-   Sanitize user inputs.
+-   Protect authenticated routes.
+-   Do not collect unnecessary personal information.
+
+21. PERFORMANCE REQUIREMENTS
+
+-   Dashboard should load efficiently for at least 20,000 sample
+    records.
+-   Data upload should provide progress/status feedback.
+-   Analytics queries should be optimized with indexes where
+    appropriate.
+-   ML prediction should return results within a few seconds for a
+    single prediction on normal hardware.
+
+22. ERROR HANDLING
+
+Show user-friendly errors for: - Invalid file - Unsupported file type -
+Missing required columns - Empty dataset - Invalid numeric values -
+Database connection failure - ML model unavailable - Invalid prediction
+input - Authentication failure
+
+Never show raw stack traces to normal users.
+
+23. TESTING
+
+Include: - Unit tests for data-cleaning functions. - API tests. -
+Authentication tests. - Database tests. - ML preprocessing tests. -
+Prediction tests. - Upload validation tests. - Dashboard/manual UI
+testing.
+
+Test cases should include: - Valid CSV - Invalid CSV - Missing column -
+Empty dataset - Duplicate rows - Missing values - Negative metrics -
+Invalid date - Invalid login - Valid prediction input - Invalid
+prediction input
+
+24. FINAL-YEAR PROJECT DELIVERABLES
+
+The final project should contain:
+
+1.  Working web application
+
+2.  Source code
+
+3.  SQL database/schema
+
+4.  Sample dataset
+
+5.  Data-cleaning pipeline
+
+6.  Exploratory data analysis
+
+7.  Interactive dashboard
+
+8.  ML model
+
+9.  Prediction interface
+
+10. Recommendation engine
+
+11. Project report
+
+12. PPT presentation
+
+13. GitHub repository
+
+14. README
+
+15. Screenshots
+
+16. Demo video
+
+17. Viva questions and answers
+
+18. RESUME PROJECT DESCRIPTION
+
+Suggested resume title:
+
+SocialSpark – Social Media Engagement Analytics & Prediction System
+
+Suggested resume description:
+
+“Developed an end-to-end social-media analytics platform using Python,
+SQL, Power BI, and machine learning to clean and analyze
+post-performance data, track engagement KPIs, identify content and
+posting-time patterns, predict expected engagement using regression
+models, and generate data-driven content recommendations.”
+
+26. EXPECTED INTERVIEW DISCUSSION
+
+The project should allow the student to explain:
+
+Python: - Pandas - Data cleaning - Feature engineering - EDA
+
+SQL: - Joins - CTEs - Window functions - Aggregations - Business queries
+
+Power BI: - DAX - Data modeling - Relationships - Filters - KPI cards -
+Dashboard design
+
+Statistics: - Mean - Median - Correlation - Outliers - Distribution
+
+Machine Learning: - Regression - Train/test split - Feature encoding -
+MAE - RMSE - R² - Feature importance - Data leakage
+
+Business Analytics: - KPI selection - Insight generation -
+Recommendation logic - Limitations of predictions
+
+27. NON-FUNCTIONAL REQUIREMENTS
+
+The application should be: - Responsive - Maintainable - Modular -
+Scalable - User-friendly - Well documented - GitHub-ready - Suitable for
+local/offline demonstration
+
+28. IMPORTANT IMPLEMENTATION RULES
+
+29. The application must work with sample/local data without requiring
+    paid services.
+
+30. Do not depend on live social-media APIs for the core functionality.
+
+31. Do not fabricate real-world results. Clearly label synthetic/sample
+    data.
+
+32. Predictions must be presented as estimates.
+
+33. Recommendations must be based on observed data.
+
+34. Keep the ML model explainable enough for a student project.
+
+35. Make the dashboard visually professional but avoid unnecessary
+    animations.
+
+36. Prioritize working functionality over excessive features.
+
+37. Use modular code.
+
+38. Include setup instructions in README.md.
+
+39. Include database setup instructions.
+
+40. Include sample credentials only for local demo, never real
+    credentials.
+
+41. Make all important configuration values environment-based.
+
+42. DEVELOPMENT PHASES
+
+PHASE 1: - Project setup - Database setup - Sample dataset
+
+PHASE 2: - Data upload - Data validation - Data cleaning
+
+PHASE 3: - SQL analytics - Python EDA - KPI calculations
+
+PHASE 4: - Dashboard development
+
+PHASE 5: - ML model - Model evaluation - Prediction API/UI
+
+PHASE 6: - Recommendation engine
+
+PHASE 7: - Authentication - Testing - Error handling
+
+PHASE 8: - Documentation - GitHub - PPT - Final demo
+
+30. FINAL SUCCESS CRITERIA
+
+The project will be considered complete when a user can:
+
+1.  Register/login.
+2.  Upload a social-media dataset.
+3.  See data-quality results.
+4.  Clean/process the dataset.
+5.  View KPI summaries.
+6.  Explore interactive analytics.
+7.  Filter results by platform/date/content type.
+8.  View top-performing posts.
+9.  Enter details for a new post.
+10. Receive an estimated engagement prediction.
+11. View model performance metrics.
+12. Receive data-driven recommendations.
+13. Export a report.
+14. Run the complete project locally using documented setup
+    instructions.
+
+END OF PRD
